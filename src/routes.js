@@ -15,7 +15,7 @@ export default function Routes() {
         <Stack.Screen name='login' 
         component={Login} 
           options={{
-            title: "LOGIN",
+            title: "Login Page",
             headerTitleAlign: "center",
             headerStyle:{
               backgroundColor: "#9705f9c2"
