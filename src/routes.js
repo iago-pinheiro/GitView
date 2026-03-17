@@ -1,60 +1,48 @@
-import React from 'react'
-import { NavigationContainer } from '@react-navigation/native'
-import { createStackNavigator } from '@react-navigation/stack'
-import Login from './pages/login'
-// import Main from './pages/main'
-// import User from './pages/user'
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import Login from "./pages/login";
+import Main from "./pages/main";
+import User from "./pages/user";
+import { typography } from "./theme/typography";
 
-
-const Stack = createStackNavigator()
+const Stack = createStackNavigator();
 
 export default function Routes() {
-  return(
+  return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name='login' 
-        component={Login} 
+        <Stack.Screen
+          name="login"
+          component={Login}
           options={{
-            title: "Login Page",
+            title: "Login",
             headerTitleAlign: "center",
-            headerStyle:{
-              backgroundColor: "#9705f9c2"
-            },
-            headerTitleStyle:{
-              fontWeight: 'bold',
-              color: "#fff"
-            }
+            headerStyle: { backgroundColor: "#b71ef4" },
+            headerTitleStyle: { color: "#fff", fontFamily: typography.bold },
           }}
         />
-        {/* <Stack.Screen name='main' 
-        component={Main} 
+        <Stack.Screen
+          name="main"
+          component={Main}
           options={{
-            title: "GitHub VIEWER",
+            title: "GitHub Viewer",
             headerTitleAlign: "center",
-            headerStyle:{
-              backgroundColor: "#9705f9c2"
-            },
-            headerTitleStyle:{
-              fontWeight: 'bold',
-              color: "#fff"
-            }
+            headerStyle: { backgroundColor: "#b71ef4" },
+            headerTitleStyle: { color: "#fff", fontFamily: typography.bold },
           }}
         />
-        <Stack.Screen name='user' 
-        component={User} 
+        <Stack.Screen
+          name="user"
+          component={User}
           options={{
             title: "Perfil do Usuário",
             headerTitleAlign: "center",
-            headerStyle:{
-              backgroundColor: "#9705f9c2"
-            },
-            headerTitleStyle:{
-              fontWeight: 'bold',
-              color: "#fff"
-            }
+            headerStyle: { backgroundColor: "#b71ef4" },
+            headerTitleStyle: { color: "#fff", fontFamily: typography.bold },
           }}
-        /> */}
+        />
       </Stack.Navigator>
     </NavigationContainer>
-  )
+  );
 }
