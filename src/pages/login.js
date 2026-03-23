@@ -8,6 +8,7 @@ import {
   Alert,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { typography } from "../theme/typography";
 
 const Login = () => {
@@ -15,13 +16,19 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const navigation = useNavigation();
 
-  const handleLogin = () => {
-    if (email === "iago" && password === "123") {
+  const handleLogin = async () => {
+    const user = await AsyncStorage.getItem("user");
+    if (!user) {
+      Alert.alert("Usuário não encontrado. Por favor, cadastre-se.");
+      return;
+    }
+    const userJson = JSON.parse(user);
+    if(userJson.email === email && userJson.password === password) {
+      Alert.alert("Login realizado com sucesso!");
       navigation.navigate("main");
-    } else {
-      Alert.alert("Erro", "E-mail ou senha incorretos.");
     }
   };
+
 
   const handleCadastro = () => {
     navigation.navigate("cadastro");
@@ -47,7 +54,7 @@ const Login = () => {
       </TouchableOpacity>
 
       <TouchableOpacity
-        style={[styles.button, { backgroundColor: "#ccc", marginTop: 10 }]}
+        style={[styles.button, { backgroundColor: "#b71ef4", marginTop: 10 }]}
         onPress={handleCadastro}
       >
         <Text style={styles.buttonText}>Cadastrar</Text>

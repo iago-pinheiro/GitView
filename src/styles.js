@@ -137,16 +137,20 @@ export const OwnerAvatar = styled.Image`
 width: 42px;
 height: 42px;
 border-radius: 21px;
-background; #eee:
+background: #eee;
 `
 export const Info = styled.View`
 margin-left: 10px;
-flex; 1;
+flex: 1;
 `
 
 export const Title = styled.Text.attrs({
   numberOfLines: 1,
-})
+})`
+font-size: 15px;
+color: #333;
+font-family: ${typography.bold};
+`
 
 export const Author = styled.Text`
 font-size: 13px;
